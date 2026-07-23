@@ -132,6 +132,18 @@
       "disabled": false,
       "autoApprove": []
     },
+    "golden-path": {
+      "command": "npx",
+      "args": [
+        "mcp-remote@latest",
+        "https://mcp.hotmart.dev/golden-path/mcp"
+      ],
+      "env": {
+        "NODE_EXTRA_CA_CERTS": "${ZSCALER_CERT_PATH}"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
     "aws": {
       "command": "uvx",
       "args": [

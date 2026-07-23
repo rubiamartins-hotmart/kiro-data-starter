@@ -4,7 +4,7 @@
 
 Ao clonar ou usar este repositório como template, todos os membros da diretoria de dados iniciam com o mesmo setup no Kiro:
 
-- ✅ MCPs pré-configurados (Google Workspace, Atlassian, Astrobox, Astrolens, Heimdall, Okta, DataHub Docs, GitHub, AWS)
+- ✅ MCPs pré-configurados (Google Workspace, Atlassian, Astrobox, Astrolens, Heimdall, Golden Path, Okta, DataHub Docs, GitHub, AWS)
 - ✅ Steering files com padrões da diretoria (Python, SQL, arquitetura, documentação)
 - ✅ Hooks de automação (AppSec, PR creation, validação SQL, ETL Validator)
 - ✅ Power Astrobox pronto para instalar
@@ -68,6 +68,7 @@ Explore a estrutura e copie apenas o que fizer sentido para seu contexto.
 | **Astrobox** | SQL, queries, reports na plataforma de dados | Token SSO + VPN | Ativo |
 | **Astrolens** | Catálogo de dados e linhagem (DataHub) | VPN | Ativo |
 | **Heimdall de Dados** | Qualidade de dados, scores, findings | VPN + Zscaler | Ativo |
+| **Golden Path** | Padrões de arquitetura e stack Hotmart | VPN + Zscaler | Ativo |
 | **GitHub** | Repos, PRs, issues | Token pessoal | Ativo |
 | **Okta** | Identidade e acesso (grupos, apps, logs) | Token API | Desabilitado* |
 | **DataHub Docs** | Data Contracts, schemas, validação YAML | VPN | Desabilitado* |
