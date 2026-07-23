@@ -49,6 +49,8 @@
 
 ## Pendentes (melhorias futuras)
 
+- [ ] Coletar informações sobre a VPN da Hotmart e incluir no manual (qual software, como instalar, como conectar, quem solicitar acesso)
+- [ ] Atualizar seção "2. Baixe o Kiro" com informações mais detalhadas (requisitos de sistema, links diretos por SO, instruções de instalação)
 - [ ] Screenshots no guia de onboarding (Passo 6)
 - [ ] Script de setup que preenche variáveis automaticamente (pedir token, detectar paths)
 - [ ] Testar onboarding completo com outro membro da diretoria
