@@ -1,0 +1,13 @@
+{
+  "name": "ETL Validator",
+  "version": "1.0.0",
+  "description": "Valida pipelines ETL ao salvar arquivos Python de ingestão/transformação — verifica idempotência, particionamento, tratamento de erros e padrões da diretoria de dados",
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["**/etl/**/*.py", "**/pipelines/**/*.py", "**/jobs/**/*.py", "**/dags/**/*.py"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "O arquivo de ETL/pipeline foi editado. Valide: 1) A operação é idempotente (reprocessamento seguro)? 2) Há tratamento de erros com logging estruturado? 3) Tabelas de destino incluem particionamento por data? 4) Metadata obrigatória está presente (created_at, updated_at, source_system)? 5) Há retry policy configurada? Se encontrar problemas, sugira correções específicas seguindo os padrões da diretoria de dados."
+  }
+}

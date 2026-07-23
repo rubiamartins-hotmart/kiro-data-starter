@@ -1,52 +1,148 @@
 {
   "mcpServers": {
-    "astrobox": {
-      "type": "streamableHttp",
-      "url": "https://mcp-astrobox.hotmart.com/mcp",
+    "google-workspace": {
+      "command": "uvx",
+      "args": [
+        "--python",
+        "${PYTHON_PATH}",
+        "workspace-mcp"
+      ],
+      "env": {
+        "GOOGLE_OAUTH_CLIENT_ID": "579455688118-v9fv2hume7nblurd2tgdh3lbc3pgkdo7.apps.googleusercontent.com",
+        "SSL_CERT_FILE": "${ZSCALER_CERT_PATH}",
+        "REQUESTS_CA_BUNDLE": "${ZSCALER_CERT_PATH}",
+        "GOOGLE_OAUTH_CLIENT_SECRET": "${GOOGLE_OAUTH_CLIENT_SECRET}"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "list_spaces",
+        "get_messages",
+        "send_message",
+        "search_messages",
+        "download_chat_attachment",
+        "search_contacts",
+        "get_presentation",
+        "get_page",
+        "get_page_thumbnail",
+        "list_calendars",
+        "search_gmail_messages"
+      ]
+    },
+    "atlassian": {
+      "url": "https://mcp.atlassian.com/v1/mcp/authv2",
+      "autoApprove": [
+        "atlassianUserInfo",
+        "getAccessibleAtlassianResources",
+        "getVisibleJiraProjects",
+        "getJiraIssue",
+        "searchJiraIssuesUsingJql",
+        "getTransitionsForJiraIssue",
+        "getJiraIssueRemoteIssueLinks",
+        "getJiraProjectIssueTypesMetadata",
+        "getJiraIssueTypeMetaWithFields",
+        "lookupJiraAccountId",
+        "search",
+        "fetch",
+        "getConfluenceSpaces",
+        "getPagesInConfluenceSpace",
+        "getConfluencePage",
+        "searchConfluenceUsingCql",
+        "getConfluencePageFooterComments",
+        "getConfluencePageInlineComments",
+        "getConfluencePageDescendants"
+      ]
+    },
+    "mcp-astrobox": {
+      "url": "https://mcp.hotmart.dev/astrobox/mcp",
+      "transport": "streamable-http",
       "headers": {
         "Authorization": "Bearer ${MCP_ASTROBOX_TOKEN}"
       },
       "disabled": false,
       "autoApprove": [
-        "get_datasource",
         "get_query",
+        "get_datasource",
+        "execute_query",
         "analyze_query",
         "execute_sql"
       ]
     },
-    "heimdall-dados": {
-      "type": "streamableHttp",
-      "url": "https://heimdall-dados-mcp.hotmart.com/mcp",
-      "headers": {
-        "Authorization": "Bearer ${MCP_HEIMDALL_TOKEN}"
-      },
-      "disabled": false,
+    "astrolens": {
+      "url": "https://astrolens-mcp-server.data.hotmart.com/mcp",
       "autoApprove": [
-        "get_score",
-        "get_findings",
-        "get_scorecard"
+        "search"
       ]
     },
-    "golden-path": {
+    "data-heimdall": {
       "command": "npx",
-      "args": ["-y", "@hotmart/golden-path-mcp@latest"],
+      "args": [
+        "mcp-remote@latest",
+        "https://mcp.hotmart.dev/data-heimdall/mcp"
+      ],
       "env": {
-        "GOLDEN_PATH_BASE_URL": "https://golden-path.hotmart.com"
+        "NODE_EXTRA_CA_CERTS": "${ZSCALER_CERT_PATH}"
       },
       "disabled": false,
       "autoApprove": [
-        "search_golden_path_docs"
+        "getScoreOverview",
+        "getFindings",
+        "getOwnerScorecard",
+        "getAssetDiagnosis",
+        "getAssetDetails",
+        "getTeams",
+        "getDomains"
       ]
     },
-    "google-workspace": {
-      "command": "uvx",
-      "args": ["google-workspace-mcp@latest"],
+    "okta": {
+      "command": "npx",
+      "args": [
+        "mcp-remote@latest",
+        "https://github.com/Hotmart-Org/Okta-MCP-Server"
+      ],
       "env": {
-        "GOOGLE_CLIENT_ID": "${GOOGLE_CLIENT_ID}",
-        "GOOGLE_CLIENT_SECRET": "${GOOGLE_CLIENT_SECRET}",
-        "GOOGLE_REDIRECT_URI": "http://localhost:3000/oauth2callback"
+        "OKTA_ORG_URL": "${OKTA_ORG_URL}",
+        "OKTA_API_TOKEN": "${OKTA_API_TOKEN}",
+        "NODE_EXTRA_CA_CERTS": "${ZSCALER_CERT_PATH}"
+      },
+      "disabled": true,
+      "autoApprove": []
+    },
+    "datahub-docs": {
+      "command": "npx",
+      "args": [
+        "mcp-remote@latest",
+        "https://github.com/Hotmart-Org/mcp-datahub"
+      ],
+      "env": {
+        "NODE_EXTRA_CA_CERTS": "${ZSCALER_CERT_PATH}"
+      },
+      "disabled": true,
+      "autoApprove": []
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}",
+        "NODE_EXTRA_CA_CERTS": "${ZSCALER_CERT_PATH}"
       },
       "disabled": false,
+      "autoApprove": []
+    },
+    "aws": {
+      "command": "uvx",
+      "args": [
+        "awslabs.aws-documentation-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "SSL_CERT_FILE": "${ZSCALER_CERT_PATH}",
+        "REQUESTS_CA_BUNDLE": "${ZSCALER_CERT_PATH}"
+      },
+      "disabled": true,
       "autoApprove": []
     }
   }
