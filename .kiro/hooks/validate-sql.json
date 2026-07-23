@@ -1,0 +1,13 @@
+{
+  "name": "Validate SQL on Save",
+  "version": "1.0.0",
+  "description": "Valida arquivos SQL ao salvar — verifica padrões de nomenclatura, performance e boas práticas",
+  "when": {
+    "type": "fileEdited",
+    "patterns": ["**/*.sql"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "O arquivo SQL foi editado. Revise rapidamente: 1) Keywords SQL estão em UPPERCASE? 2) Tabelas têm schema explícito? 3) Há SELECT * que deveria listar colunas? 4) Queries sem LIMIT em tabelas grandes? 5) Há concatenação de strings ao invés de parâmetros? Se encontrar problemas, sugira correções específicas."
+  }
+}

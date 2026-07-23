@@ -1,0 +1,53 @@
+{
+  "mcpServers": {
+    "astrobox": {
+      "type": "streamableHttp",
+      "url": "https://mcp-astrobox.hotmart.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCP_ASTROBOX_TOKEN}"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "get_datasource",
+        "get_query",
+        "analyze_query",
+        "execute_sql"
+      ]
+    },
+    "heimdall-dados": {
+      "type": "streamableHttp",
+      "url": "https://heimdall-dados-mcp.hotmart.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCP_HEIMDALL_TOKEN}"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "get_score",
+        "get_findings",
+        "get_scorecard"
+      ]
+    },
+    "golden-path": {
+      "command": "npx",
+      "args": ["-y", "@hotmart/golden-path-mcp@latest"],
+      "env": {
+        "GOLDEN_PATH_BASE_URL": "https://golden-path.hotmart.com"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "search_golden_path_docs"
+      ]
+    },
+    "google-workspace": {
+      "command": "uvx",
+      "args": ["google-workspace-mcp@latest"],
+      "env": {
+        "GOOGLE_CLIENT_ID": "${GOOGLE_CLIENT_ID}",
+        "GOOGLE_CLIENT_SECRET": "${GOOGLE_CLIENT_SECRET}",
+        "GOOGLE_REDIRECT_URI": "http://localhost:3000/oauth2callback"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

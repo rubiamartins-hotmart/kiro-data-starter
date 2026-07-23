@@ -1,0 +1,12 @@
+{
+  "name": "Create Pull Request",
+  "version": "1.0.0",
+  "description": "Cria PR no GitHub com título baseado no branch/Jira, preenche template e move issue para Code Reviewing",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Crie um Pull Request para o branch atual seguindo estes passos: 1) Identifique o branch atual com `git branch --show-current`, 2) Extraia o código Jira do nome do branch (ex: DCPLF-123), 3) Gere um título conciso (<70 chars) baseado nos commits, 4) Preencha a descrição com: resumo das mudanças, o que foi testado, link da issue Jira, 5) Crie o PR com `gh pr create`, 6) Se encontrou código Jira, transite a issue para 'Code Reviewing' via MCP Atlassian."
+  }
+}

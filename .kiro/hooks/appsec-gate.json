@@ -1,0 +1,13 @@
+{
+  "name": "AppSec Gate",
+  "version": "1.0.0",
+  "description": "Valida segurança em operações de escrita — verifica secrets expostos, SQL injection, e padrões inseguros antes de salvar",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": ["write"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Antes de escrever este arquivo, verifique: 1) Não há secrets/tokens hardcoded no conteúdo, 2) Queries SQL usam parâmetros (sem concatenação de strings), 3) Inputs de usuário são validados antes do uso, 4) Não há imports de pacotes suspeitos ou desconhecidos. Se encontrar problemas, recuse a escrita e explique o que corrigir."
+  }
+}
